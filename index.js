@@ -4,7 +4,7 @@ var runSequence = require('run-sequence');
 
 /**
  * doScss - Compile Scss
- * @param  Array src 		Globs of src path.
+ * @param  Array src 		Globs of src file patterns.
  * @param  Array paths 		Paths to include for Scss @import.
  * @param  String dest 		Path of stream destination.
  * @return Object
@@ -22,7 +22,7 @@ exports.doScss = function(src, paths, dest) {
 
 /**
  * doJs - Compile Javascript
- * @param  Array src		Globs of src paths.
+ * @param  Array src		Globs of src file patterns.
  * @param  String name 		Name of output file.
  * @param  String dest 		Path of stream destination.
  * @return Object
@@ -36,3 +36,22 @@ exports.doJs = function(src, name, dest) {
 		.pipe(plugins.sourcemaps.write('./maps'))
 		.pipe(gulp.dest(dest));
 };
+
+/**
+ * doImages - Optimize Images
+ * @param  Array src 		Globs of src file patterns.
+ * @param  String dest 		Path of stream destination.
+ * @param  Object options 	Imagemin Options.
+ * @return Object
+ */
+exports.doImages = function(src, dest, options) {
+	options = typeof options !== 'undefined' ? options : {
+		optimizationLevel: 5,
+		progressive: true,
+		interlaced: true
+	};
+
+	return gulp.src(src)
+		.pipe(plugins.imagemin(options))
+		.pipe(gulp.dest(dest));
+}
