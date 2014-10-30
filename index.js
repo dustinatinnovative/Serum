@@ -14,7 +14,9 @@ exports.doScss = function(src, paths, dest) {
 		.pipe(plugins.sourcemaps.init())
 			.pipe(plugins.sass({
 				includePaths: paths,
-				outputStyle: 'compressed'
+				outputStyle: 'compressed',
+				errLogToConsole: true,
+				onSuccess: function(){ console.log('SCSS compiled') }
 			}))
 		.pipe(plugins.sourcemaps.write('./maps'))
 		.pipe(gulp.dest(dest));
