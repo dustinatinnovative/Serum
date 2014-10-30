@@ -31,3 +31,6 @@ node_modules
 bower_components
 bower.json
 Gulpfile.js
+Config.js
+pre
+public
