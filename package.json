@@ -1,0 +1,44 @@
+{
+  "name": "Serum",
+  "version": "1.0.0",
+  "description": "Serum Core",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dustinautery/Serum.git"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "Dustin Autery",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dustinautery/Serum/issues"
+  },
+  "homepage": "https://github.com/dustinautery/Serum",
+  "dependencies": {
+    "gulp": "~3.8.9",
+    "gulp-rename": "~1.2.0",
+    "gulp-concat": "~2.4.0",
+    "gulp-minify-css": "~0.3.8",
+    "gulp-uglify": "~1.0.1",
+    "gulp-cache": "~0.2.2",
+    "gulp-livereload": "~2.1.1",
+    "gulp-jshint": "~1.8.4",
+    "gulp-imagemin": "~1.0.1",
+    "gulp-load-plugins": "~0.6.0",
+    "jshint-stylish": "~0.4.0",
+    "gulp-sourcemaps": "~1.1.4",
+    "gulp-shell": "~0.2.9",
+    "run-sequence": "~0.3.6",
+    "gulp-pixrem": "~0.1.1",
+    "gulp-sass": "~1.0.0"
+  },
+  "devDependencies": {
+
+  },
+  "private": true
+}
