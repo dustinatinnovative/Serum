@@ -1,0 +1,35 @@
+<?php
+
+return array(
+
+	/*
+	|--------------------------------------------------------------------------
+	| PDO Fetch Style
+	|--------------------------------------------------------------------------
+	|
+	| By default, database results will be returned as instances of the PHP
+	| stdClass object; however, you may desire to retrieve records in an
+	| array format for simplicity. Here you can tweak the fetch style.
+	|
+	*/
+
+	'fetch' => PDO::FETCH_CLASS,
+
+
+	'connections' => array(
+
+		'mysql' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'DB_NAME',
+			'username'  => 'DB_USER',
+			'password'  => 'DB_PASS',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+
+	),
+
+
+);

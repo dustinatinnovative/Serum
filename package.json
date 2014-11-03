@@ -1,7 +1,7 @@
 {
   "name": "Serum",
   "version": "1.0.0",
-  "description": "Serum Core",
+  "description": "Serum",
   "main": "index.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
@@ -13,7 +13,7 @@
   "keywords": [
     "gulp"
   ],
-  "author": "Dustin Autery",
+  "author": "Dustin Autery, Brandon Wiele",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dustinautery/Serum/issues"
@@ -38,7 +38,10 @@
     "gulp-shell": "~0.2.9",
     "run-sequence": "~0.3.6",
     "gulp-pixrem": "~0.1.1",
-    "gulp-sass": "~1.0.0"
+    "gulp-sass": "~1.0.0",
+    "gulp-prompt": "~0.1",
+    "gulp-replace": "~0.4",
+    "require-dir": "~0.1"
   },
   "private": true
 }

@@ -1,6 +1,10 @@
 var gulp 	= require('gulp'),
-	plugins = require('gulp-load-plugins')();
-var runSequence = require('run-sequence');
+	prompt	= require('gulp-prompt'),
+	shell	= require('gulp-shell'),
+	plugins = require('gulp-load-plugins')(),
+	requireDir = require('require-dir'),
+	Serum = requireDir('./cells'),
+	runSequence = require('run-sequence').use(gulp);
 
 /**
  * doScss - Compile Scss
@@ -56,4 +60,11 @@ exports.doImages = function(src, dest, options) {
 	return gulp.src(src)
 		.pipe(plugins.imagemin(options))
 		.pipe(gulp.dest(dest));
+}
+
+/**
+ * coreInstall - Do a base install of core, clean up laravel, and otherwise get ready to code!
+ */
+exports.coreInstall = function() {
+	return runSequence('databaseConfig','appConfig','setMachine','setIgnores','provisionCoreDB','installBoilerplate','cleanLaravel','dump','publish');
 }
