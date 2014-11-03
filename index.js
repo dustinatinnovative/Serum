@@ -66,5 +66,5 @@ exports.doImages = function(src, dest, options) {
  * coreInstall - Do a base install of core, clean up laravel, and otherwise get ready to code!
  */
 exports.coreInstall = function() {
-	return runSequence('databaseConfig','appConfig','setMachine','setIgnores','provisionCoreDB','installBoilerplate','cleanLaravel','dump','publish');
+	return runSequence('installLaravel','requireCore','composerUpdate','databaseConfig','appConfig','setMachine','setIgnores','provisionCoreDB','installBoilerplate','cleanLaravel','dump','publish');
 }
