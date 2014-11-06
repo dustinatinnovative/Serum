@@ -19,9 +19,7 @@
     "url": "https://github.com/dustinautery/Serum/issues"
   },
   "homepage": "https://github.com/dustinautery/Serum",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "~3.8.9",
     "gulp-rename": "~1.2.0",
@@ -41,7 +39,9 @@
     "gulp-sass": "~1.0.0",
     "gulp-prompt": "~0.1",
     "gulp-replace": "~0.4",
-    "require-dir": "~0.1"
+    "require-dir": "~0.1",
+    "gulp-git": "~0.5.3",
+    "gulp-declare": "~0.3.0"
   },
   "private": true
 }
