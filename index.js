@@ -67,13 +67,14 @@ exports.doImages = function(src, dest, options) {
  * coreInstall - Do a base install of core, clean up laravel, and otherwise get ready to code!
  */
 module.exports = gulp.task('core-install', ['coreQuestions'], function() {
-	return runSequence('databaseConfig','appConfig','setMachine','setIgnores','provisionCoreDB','installBoilerplate','cleanLaravel','dump','publish');
+	return runSequence('installLaravel','requireCore','composerUpdate','databaseConfig','appConfig','setMachine','setIgnores','provisionCoreDB','installBoilerplate','cleanLaravel','dump','publish');
 })
 
 gulp.task('coreQuestions', function() {
 	return gulp.src('')
 		.pipe(plugins.prompt.prompt(questions, function(answers) {
-			var answers = answers;
+			global.answers = answers;
 		}))
 		.pipe(gulp.dest(''))
 })
+
