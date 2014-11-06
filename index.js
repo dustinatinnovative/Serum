@@ -4,6 +4,7 @@ var gulp 	= require('gulp'),
 	plugins = require('gulp-load-plugins')(),
 	requireDir = require('require-dir'),
 	Serum = requireDir('./cells'),
+	questions = require('./lib/questions'),
 	runSequence = require('run-sequence').use(gulp);
 
 /**
@@ -65,6 +66,15 @@ exports.doImages = function(src, dest, options) {
 /**
  * coreInstall - Do a base install of core, clean up laravel, and otherwise get ready to code!
  */
-exports.coreInstall = function() {
+module.exports = gulp.task('core-install', ['coreQuestions'], function() {
 	return runSequence('installLaravel','requireCore','composerUpdate','databaseConfig','appConfig','setMachine','setIgnores','provisionCoreDB','installBoilerplate','cleanLaravel','dump','publish');
-}
+})
+
+gulp.task('coreQuestions', function() {
+	return gulp.src('')
+		.pipe(plugins.prompt.prompt(questions, function(answers) {
+			global.answers = answers;
+		}))
+		.pipe(gulp.dest(''))
+})
+
