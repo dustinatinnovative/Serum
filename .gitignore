@@ -30,7 +30,7 @@ node_modules
 # Extras
 bower_components
 bower.json
-Gulpfile.js
-Config.js
+gulpfile.js
+config.js
 pre
 public

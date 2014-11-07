@@ -9,7 +9,7 @@ module.exports = gulp.task('requireCore', function () {
 		stability = 'dev';
 	}
 
-	return gulp.src('stubs/composer.stub')
+	return gulp.src(__dirname + '/../stubs/composer.stub')
 		.pipe(plugins.replace(/PROJECT_NAME/g, global.answers.project_name))
 		.pipe(plugins.replace(/CORE_VERSION/g, global.answers.core_version))
 		.pipe(plugins.replace(/PROJECT_STABILITY/g, stability))
