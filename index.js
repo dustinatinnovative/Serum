@@ -88,7 +88,6 @@ exports.doPixrem = function(src, dest, options) {
 	};
 
 	return gulp.src(src)
-		.pipe(plugins.newer(dest))
 		.pipe(plugins.pixrem())
 		.pipe(plugins.rename(options))
 		.pipe(gulp.dest(dest))
