@@ -98,21 +98,22 @@ exports.doPixrem = function(src, dest, options) {
 };
 
 /**
- * coreInstall - Do a base install of core, clean up laravel, and otherwise get ready to code!
+ * setupCore - Setup core project interactively
  */
-exports.coreInstall = gulp.task('core-install', ['coreQuestions'], function() {
+exports.setupCore = gulp.task('setup-core', ['coreQuestions'], function() {
 	return runSequence(
 		// 'installLaravel',
-		'requireCore',
-		'composerUpdate',
-		'databaseConfig',
-		'appConfig',
-		'setMachine',
-		'setIgnores',
-		'provisionCoreDB',
-		'cleanLaravel',
-		'dump',
-		'publish');
+		'setupCore'
+		// 'composerUpdate',
+		// 'databaseConfig',
+		// 'appConfig',
+		// 'setMachine',
+		// 'setIgnores',
+		// 'provisionCoreDB',
+		// 'cleanLaravel',
+		// 'dump',
+		// 'publish'
+	);
 })
 
 gulp.task('coreQuestions', function() {
