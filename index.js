@@ -101,7 +101,18 @@ exports.doPixrem = function(src, dest, options) {
  * coreInstall - Do a base install of core, clean up laravel, and otherwise get ready to code!
  */
 exports.coreInstall = gulp.task('core-install', ['coreQuestions'], function() {
-	return runSequence('installLaravel','requireCore','composerUpdate','databaseConfig','appConfig','setMachine','setIgnores','provisionCoreDB','cleanLaravel','dump','publish');
+	return runSequence(
+		// 'installLaravel',
+		'requireCore',
+		'composerUpdate',
+		'databaseConfig',
+		'appConfig',
+		'setMachine',
+		'setIgnores',
+		'provisionCoreDB',
+		'cleanLaravel',
+		'dump',
+		'publish');
 })
 
 gulp.task('coreQuestions', function() {
