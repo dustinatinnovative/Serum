@@ -1,11 +1,5 @@
-var gulp 	= require('gulp'),
-	prompt	= require('gulp-prompt'),
-	shell	= require('gulp-shell'),
-	plugins = require('gulp-load-plugins')(),
-	requireDir = require('require-dir'),
-	Serum = requireDir('./cells'),
-	questions = require('./lib/questions'),
-	runSequence = require('run-sequence').use(gulp);
+var gulp 		= require('gulp'),
+	plugins 	= require('gulp-load-plugins')();
 
 /**
  * doScss - Compile Scss
@@ -22,7 +16,7 @@ exports.doScss = function(src, paths, dest) {
 				outputStyle: 'compressed',
 				errLogToConsole: true
 			}))
-		.pipe(plugins.sourcemaps.write('./maps'))
+		.pipe(plugins.sourcemaps.write('./maps', { addComment: false }))
 		.pipe(gulp.dest(dest))
 		.pipe(plugins.notify({
 			message: '<%= file.relative %> compiled successfully',
@@ -43,7 +37,7 @@ exports.doJs = function(src, name, dest) {
 			.pipe(plugins.concat( name + '.js', {newLine: ';'}))
 			.pipe(plugins.rename({ basename: name, suffix: '.min'}))
 			.pipe(plugins.uglify())
-		.pipe(plugins.sourcemaps.write('./maps'))
+		.pipe(plugins.sourcemaps.write('./maps', { addComment: false }))
 		.pipe(gulp.dest(dest))
 		.pipe(plugins.notify({
 			message: '<%= file.relative %> compiled successfully',
@@ -84,7 +78,7 @@ exports.doImages = function(src, dest, options) {
  */
 exports.doPixrem = function(src, dest, options) {
 	options = typeof options !== 'undefined' ? options : {
-		basename: 'ie8'
+		suffix: '-ie8'
 	};
 
 	return gulp.src(src)
@@ -96,31 +90,3 @@ exports.doPixrem = function(src, dest, options) {
 			notifier: function(options, callback) {}
 		}));
 };
-
-/**
- * setupCore - Setup core project interactively
- */
-exports.setupCore = gulp.task('setup-core', ['coreQuestions'], function() {
-	return runSequence(
-		// 'installLaravel',
-		'setupCore'
-		// 'composerUpdate',
-		// 'databaseConfig',
-		// 'appConfig',
-		// 'setMachine',
-		// 'setIgnores',
-		// 'provisionCoreDB',
-		// 'cleanLaravel',
-		// 'dump',
-		// 'publish'
-	);
-})
-
-gulp.task('coreQuestions', function() {
-	return gulp.src('')
-		.pipe(plugins.prompt.prompt(questions, function(answers) {
-			global.answers = answers;
-		}))
-		.pipe(gulp.dest(''))
-})
-
