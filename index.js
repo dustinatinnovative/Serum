@@ -1,4 +1,6 @@
 var gulp 		= require('gulp'),
+	penthouse 	= require('penthouse'),
+	fs 			= require('fs'),
 	plugins 	= require('gulp-load-plugins')();
 
 /**
@@ -90,3 +92,17 @@ exports.doPixrem = function(src, dest, options) {
 			notifier: function(options, callback) {}
 		}));
 };
+
+
+exports.doPenthouse = function(url, src, dest){
+
+	penthouse({
+		url: url,
+		css: src,
+		width: 2560,
+		height: 1440
+	}, function (err, critical) {
+		fs.writeFile(dest, critical);
+	});
+
+}

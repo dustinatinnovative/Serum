@@ -34,3 +34,5 @@ gulpfile.js
 config.js
 pre
 public
+resources
+index.html
