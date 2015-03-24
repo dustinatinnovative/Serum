@@ -36,3 +36,5 @@ pre
 public
 resources
 index.html
+.vhost.json
+.vhost.template
